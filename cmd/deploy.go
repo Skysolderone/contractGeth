@@ -24,7 +24,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	privateKey, err := crypto.HexToECDSA("metaprivatekey") // metamask privatekey
+	privateKey, err := crypto.HexToECDSA("metamakse priveate ") // metamask privatekey
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -32,7 +32,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	addres, tx, instance, err := gen.DeployGen(auth, conn, big.NewInt(1000000000))
+	dec := new(big.Int).Exp(big.NewInt(10), big.NewInt(18), nil)
+	n := big.NewInt(100000)
+	num := new(big.Int).Mul(dec, n)
+	addres, tx, instance, err := gen.DeployGen(auth, conn, num)
 	if err != nil {
 		log.Fatal(err)
 	}
